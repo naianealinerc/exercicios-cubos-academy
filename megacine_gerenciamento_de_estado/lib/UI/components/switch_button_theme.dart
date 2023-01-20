@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../controllers/theme_controller.dart';
 
-class SwitchButtonTheme extends StatelessWidget {
-  const SwitchButtonTheme({
+class SwitchChangeTheme extends StatelessWidget {
+  const SwitchChangeTheme({
     Key? key,
     required this.themeController,
   }) : super(key: key);

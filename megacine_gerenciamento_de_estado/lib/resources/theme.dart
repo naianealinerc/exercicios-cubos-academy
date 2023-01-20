@@ -7,6 +7,8 @@ class ThemeApp {
   final themeLight = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
+
+    // AppBar
     appBarTheme: const AppBarTheme(
       elevation: 0,
       backgroundColor: Colors.transparent,
@@ -19,16 +21,16 @@ class ThemeApp {
         statusBarColor: primaryColor,
       ),
     ),
+
+    // TabBar
     tabBarTheme: const TabBarTheme(
       labelColor: primaryColor,
       labelStyle: TextStyle(
-        height: 16,
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
       unselectedLabelColor: Color(0xff626262),
       unselectedLabelStyle: TextStyle(
-        height: 16,
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
@@ -55,13 +57,11 @@ class ThemeApp {
     tabBarTheme: const TabBarTheme(
       labelColor: primaryColor,
       labelStyle: TextStyle(
-        height: 16,
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
       unselectedLabelColor: Color(0xff626262),
       unselectedLabelStyle: TextStyle(
-        height: 16,
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
