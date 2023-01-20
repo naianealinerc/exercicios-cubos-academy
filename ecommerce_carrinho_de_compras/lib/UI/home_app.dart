@@ -1,5 +1,6 @@
 import 'package:ecommerce_carrinho_de_compras/UI/screens/cart_view.dart';
 import 'package:ecommerce_carrinho_de_compras/controller/products_cart_controller.dart';
+import 'package:ecommerce_carrinho_de_compras/models/product.dart';
 import 'package:ecommerce_carrinho_de_compras/resources/strings.dart';
 import 'package:ecommerce_carrinho_de_compras/resources/theme.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,13 @@ class _HomeAppState extends State<HomeApp> {
   final theme = ThemeApp.themeLight;
   int _selectedIndex = 0;
 
-  final controller = CartController();
+  late final CartController controller;
+  // late final CartController nomealeatorio;
 
   @override
   void initState() {
     super.initState();
+    controller = CartController();
     controller.getProducts();
   }
 
@@ -34,7 +37,6 @@ class _HomeAppState extends State<HomeApp> {
 
   @override
   Widget build(BuildContext context) {
-
     final List<Widget> screensView = [
       HomeView(
         controller: controller,

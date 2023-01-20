@@ -7,24 +7,15 @@ import '../../models/product.dart';
 import '../../resources/strings.dart';
 import '../../resources/theme.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({Key? key, required this.controller})
-      : super(key: key);
+class HomeView extends StatelessWidget {
+  HomeView({Key? key, required this.controller,}) : super(key: key);
 
   final CartController controller;
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
   final theme = ThemeApp.themeLight;
 
   @override
   Widget build(BuildContext context) {
-    
-    final List<Product> products = widget.controller.items;
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -38,15 +29,21 @@ class _HomeViewState extends State<HomeView> {
             height: 30,
           ),
           Expanded(
-            child: GridView.builder(
-                itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                itemBuilder: ((context, index) {
-                  final product = products[index];
+            child: AnimatedBuilder(
+              animation: controller,
+              builder: (context, child) {
+                return GridView.builder(
+                    itemCount: controller.items.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
+                    itemBuilder: ((context, index) {
+                      final product = controller.items[index];
 
-                  return buildGridList(product);
-                })),
+                      return buildGridList(product);
+                    }));
+              },
+            ),
           )
         ],
       ),
@@ -61,7 +58,7 @@ class _HomeViewState extends State<HomeView> {
       theme: theme,
       widgetButton: ButtonAdd(
         product: product,
-        controller: widget.controller,
+        controller: controller,
       ),
     );
   }

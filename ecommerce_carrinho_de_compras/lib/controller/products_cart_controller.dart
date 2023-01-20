@@ -12,6 +12,7 @@ class CartController extends ChangeNotifier {
     final productRepository = ProductRepository();
     List<Product> response = await productRepository.getListProducts();
     _products = response;
+    notifyListeners();
   }
 
   // getter que pega a lista total de produtos
