@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../controllers/theme_controller.dart';
 import '../resources/strings.dart';
+import 'categories_pages.dart';
 import 'components/switch_button_theme.dart';
 
 class HomeApp extends StatefulWidget {
@@ -53,14 +54,8 @@ class _HomeAppState extends State<HomeApp> with TickerProviderStateMixin {
           controller: tabController,
         ),
       ),
-      body: TabBarView(controller: tabController, children: const [
-        Center(
-          child: Text("Texto Populares"),
-        ),
-        Center(
-          child: Text("texto Mais avaliados"),
-        ),
-      ]),
+      body: CategoriesPages(tabController: tabController),
     );
   }
 }
+
