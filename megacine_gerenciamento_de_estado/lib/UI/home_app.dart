@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../controllers/theme_controller.dart';
+import 'controllers/theme_controller.dart';
 import '../resources/strings.dart';
 import 'categories_pages.dart';
 import 'components/switch_button_theme.dart';
@@ -58,4 +58,3 @@ class _HomeAppState extends State<HomeApp> with TickerProviderStateMixin {
     );
   }
 }
-

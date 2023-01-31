@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../controllers/theme_controller.dart';
+import '../controllers/theme_controller.dart';
 
 class SwitchChangeTheme extends StatelessWidget {
   const SwitchChangeTheme({

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:megacine_gerenciamento_de_estado/controllers/theme_controller.dart';
+import 'package:megacine_gerenciamento_de_estado/UI/app_view_model.dart';
+import 'package:megacine_gerenciamento_de_estado/UI/controllers/theme_controller.dart';
 import 'package:megacine_gerenciamento_de_estado/resources/theme.dart';
+import 'package:provider/provider.dart';
 import 'UI/home_app.dart';
 
 void main() {
@@ -18,12 +20,15 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeController.themeMode,
       builder: (BuildContext context, value, Widget? child) {
-        return MaterialApp(
-          darkTheme: themes.themeDark,
-          theme: themes.themeLight,
-          themeMode: themeController.themeMode.value,
-          debugShowCheckedModeBanner: false,
-          home: HomeApp(themeController: themeController),
+        return ChangeNotifierProvider(
+          create: (context) => AppViewModel(),
+          child: MaterialApp(
+            darkTheme: themes.themeDark,
+            theme: themes.themeLight,
+            themeMode: themeController.themeMode.value,
+            debugShowCheckedModeBanner: false,
+            home: HomeApp(themeController: themeController),
+          ),
         );
       },
     );
