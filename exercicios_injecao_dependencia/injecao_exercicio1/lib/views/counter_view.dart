@@ -11,7 +11,13 @@ class CounterView extends StatefulWidget {
 }
 
 class _CounterViewState extends State<CounterView> {
-  final controller = CounterController(CounterService());
+  late final CounterController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = CounterController(CounterService());
+  }
 
   @override
   Widget build(BuildContext context) {
